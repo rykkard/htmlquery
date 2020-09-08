@@ -19,7 +19,7 @@ func (args *arguments) parse() {
 	flag.Usage = func() {
 		h := []string{
 			fmt.Sprintf("HTMLquery %v", version),
-			"A fairly simple wrapper around the goquery golang package.",
+			"A fairly simple html selector built around the goquery golang package.",
 			"",
 			"Usage:",
 			fmt.Sprintf("   %v [OPTIONS] <query> [<resources>]", filepath.Base(os.Args[0])),
