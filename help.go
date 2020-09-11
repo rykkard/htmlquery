@@ -11,6 +11,7 @@ import (
 
 type arguments struct {
 	urlMode   bool
+	raw       bool
 	query     string
 	resources []string
 }
@@ -26,6 +27,7 @@ func (args *arguments) parse() {
 			"",
 			"Options:",
 			"   -u, --url                   enable URL mode",
+			"   -r, --raw-output            enable raw output",
 			"   -h, --help                  show help",
 			"",
 		}
@@ -35,6 +37,9 @@ func (args *arguments) parse() {
 
 	flag.BoolVar(&args.urlMode, "url", args.urlMode, "")
 	flag.BoolVar(&args.urlMode, "u", args.urlMode, "")
+
+	flag.BoolVar(&args.raw, "raw-output", args.raw, "")
+	flag.BoolVar(&args.raw, "r", args.raw, "")
 
 	flag.Parse()
 }

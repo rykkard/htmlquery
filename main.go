@@ -72,13 +72,17 @@ func doQuery(query string, r io.Reader) {
 	}
 
 	doc.Find(query).Each(func(i int, s *goquery.Selection) {
-		for _, node := range s.Nodes {
-			// node.Type == html.ElementNode
-			err := html.Render(os.Stdout, node)
-			if err != nil {
-				log.Println(err)
-			} else {
-				fmt.Println()
+		if args.raw {
+			inner, _ := s.Html()
+			fmt.Println(inner)
+		} else {
+			for _, node := range s.Nodes {
+				err := html.Render(os.Stdout, node)
+				if err != nil {
+					log.Println(err)
+				} else {
+					fmt.Println()
+				}
 			}
 		}
 	})
