@@ -27,6 +27,7 @@ Usage:
 
 Options:
    -u, --url                   enable URL mode
+   -r, --raw-output            enable raw output
    -h, --help                  show help
 ```
 
